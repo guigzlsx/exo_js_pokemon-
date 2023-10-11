@@ -10,15 +10,33 @@ class Pokemon {
 
     this.luck = luck;
   }
-  getphpLvl() {
-    console.log(this.name + " a " + this.php + "/5 en php");
+  // result() {
+  //   console.log(
+  //     this.name + " n'a plus que " + poke2.attakPokemon + " point de vie"
+  //   );
+  // }
+
+  isLucky() {
+    return Math.random() < this.luck;
+  }
+
+  attakPokemon(adversaire) {
+    let resthp = adversaire.hp - this.attak;
+    console.log(this.name + " n'a plus que " + resthp + " point de vie");
   }
 }
 
-let pikachu = new Pokemon("Pikachu", 5, 4, 1, 3);
-let ronflex = new Pokemon("Ronflex", 3, 5, 4, 2);
+let poke1 = new Pokemon("Pikachu", 5, 4, 1, 0.1);
+let poke2 = new Pokemon("Ronflex", 3, 5, 4, 0.7);
 
-
-while(this.hp != 0){
-    
+while (poke1.hp > 0 && poke2.hp > 0) {
+  console.log("salut");
+  if (poke1.isLucky()) {
+    poke1.attakPokemon(poke2);
+  } else {
+    console.log("passe ton tour frerot");
+    break;
+  }
 }
+
+// poke2.result();
